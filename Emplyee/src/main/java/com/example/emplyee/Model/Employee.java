@@ -9,7 +9,7 @@ import javax.validation.constraints.*;
 public class Employee {
 
     @NotEmpty(message="id can't be empty")
-    @Min(value=3, message="ID must be more than 2 char")
+    @Size(min=3, message="ID must be more than 2 char")
     private String id;
 
     @NotEmpty(message="name can't be empty")
