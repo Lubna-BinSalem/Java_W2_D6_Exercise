@@ -27,7 +27,7 @@ public class EmployeeController {
             return ResponseEntity.status(400).body(new ApiResponse(message,400));
         }
         employeeList.add(employee);
-        return ResponseEntity.status(201).body( new ApiResponse("New user added !",201));
+        return ResponseEntity.status(201).body( new ApiResponse("New Employee added !",201));
     }
 
     @PutMapping("/employee/{index}")
@@ -41,7 +41,7 @@ public class EmployeeController {
             return ResponseEntity.status(400).body(new ApiResponse("Invalid index",400));
         }
         employeeList.set(index,employee);
-        return ResponseEntity.status(201).body( new ApiResponse("User updated !",201));
+        return ResponseEntity.status(201).body( new ApiResponse("Employee updated !",201));
     }
 
     @DeleteMapping("/employee/{index}")
