@@ -21,12 +21,12 @@ public class EmployeeController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity addUser(@RequestBody @Valid Employee myUser, Errors errors){
+    public ResponseEntity addUser(@RequestBody @Valid Employee employee, Errors errors){
         if(errors.hasErrors()){
             String message=errors.getFieldError().getDefaultMessage();
             return ResponseEntity.status(400).body(new ApiResponse(message,400));
         }
-        employeeList.add(myUser);
+        employeeList.add(employee);
         return ResponseEntity.status(201).body( new ApiResponse("New user added !",201));
     }
 
