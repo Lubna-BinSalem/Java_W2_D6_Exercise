@@ -50,7 +50,7 @@ public class EmployeeController {
             return ResponseEntity.status(400).body(new ApiResponse("Invalid index",400));
         }
         employeeList.remove(index);
-        return ResponseEntity.status(200).body(new ApiResponse("User deleted !",200));
+        return ResponseEntity.status(200).body(new ApiResponse("Employee deleted !",200));
     }
 
     @PostMapping(path="/employee/leave")
