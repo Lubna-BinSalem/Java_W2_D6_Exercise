@@ -17,7 +17,7 @@ public class Employee {
     private String name;
 
     @NotEmpty(message="age can't be null")
-    @Pattern(regexp = "[\\s]*[0-9]*[1-9]",message="Age must be a number")
+    @Pattern(regexp = "[\\s]*[1-9]*[0-9]",message="Age must be a number")
     @Min(value=26 ,message="Age must be more than 25")
     private String age;
 
@@ -25,13 +25,13 @@ public class Employee {
     private boolean onLeave;
 
     @NotEmpty(message="The employment year can't be null")
-    @Pattern(regexp = "[\\s]*[0-9]*[1-9]",message="The employment year must be a number")
+    @Pattern(regexp = "[\\s]*[1-9]*[0-9]",message="The employment year must be a number")
     @Min(value=1900 ,message="Not valid Employment year")
     @Max(value=2022 ,message="Not valid Employment year")   
     private String employmentYear;
 
     @NotEmpty(message="The annual leave can't be null")
-    @Pattern(regexp = "[\\s]*[0-9]*[1-9]|[0]",message="The annual leave must be a number")
+    @Pattern(regexp = "[\\s]*[1-9]*[0-9]|[0]",message="The annual leave must be a number")
     private String annualLeave;
 
 
