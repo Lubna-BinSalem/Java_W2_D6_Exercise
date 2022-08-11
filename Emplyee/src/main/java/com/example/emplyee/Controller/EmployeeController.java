@@ -16,12 +16,12 @@ public class EmployeeController {
     ArrayList<Employee> employeeList= new ArrayList<Employee>();
 
     @GetMapping("/employee")
-    public ResponseEntity getUsers(){
+    public ResponseEntity getEmployee(){
         return ResponseEntity.status(200).body(employeeList);
     }
 
     @PostMapping("/register")
-    public ResponseEntity addUser(@RequestBody @Valid Employee employee, Errors errors){
+    public ResponseEntity addEmployee(@RequestBody @Valid Employee employee, Errors errors){
         if(errors.hasErrors()){
             String message=errors.getFieldError().getDefaultMessage();
             return ResponseEntity.status(400).body(new ApiResponse(message,400));
@@ -31,7 +31,7 @@ public class EmployeeController {
     }
 
     @PutMapping("/employee/{index}")
-    public ResponseEntity updateUser(@RequestBody @Valid Employee myUser
+    public ResponseEntity updateEmployee(@RequestBody @Valid Employee employee
             ,@PathVariable int index,Errors errors){
         if(errors.hasErrors()){
             String message=errors.getFieldError().getDefaultMessage();
@@ -40,12 +40,12 @@ public class EmployeeController {
         if(index>=employeeList.size()){
             return ResponseEntity.status(400).body(new ApiResponse("Invalid index",400));
         }
-        employeeList.set(index,myUser);
+        employeeList.set(index,employee);
         return ResponseEntity.status(201).body( new ApiResponse("User updated !",201));
     }
 
     @DeleteMapping("/employee/{index}")
-    public ResponseEntity deleteUser(@PathVariable int index){
+    public ResponseEntity deleteEmployee(@PathVariable int index){
         if(index>=employeeList.size()){
             return ResponseEntity.status(400).body(new ApiResponse("Invalid index",400));
         }
