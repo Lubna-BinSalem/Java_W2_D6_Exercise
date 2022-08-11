@@ -26,7 +26,8 @@ public class Employee {
 
     @NotEmpty(message="The employment year can't be null")
     @Pattern(regexp = "[\\s]*[0-9]*[1-9]",message="The employment year must be a number")
-    @Pattern(regexp = "^(19|20)\\d{2}$",message="The employment year must be a valid year")
+    @Min(value=1900 ,message="Not valid Employment year")
+    @Max(value=2022 ,message="Not valid Employment year")   
     private String employmentYear;
 
     @NotEmpty(message="The annual leave can't be null")
